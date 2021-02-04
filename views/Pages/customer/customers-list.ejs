@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista zamówień</h2>
+    <div class="lista">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Imie</th>
+                    <th scope="col">Nazwisko</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Funkcjonalność</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <% for (let klient of klientList) { %>
+                <tr>
+                    <td><%= klient.Imie %></td>
+                    <td><%= klient.Nazwisko %></td>
+                    <td><%= klient.Telefon %></td>
+                    <td><%= klient.Email %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/klient/details/<%=klient.IdKlient %>"
+                                    class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/klient/edit/<%=klient.IdKlient %>"
+                                    class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/klient/delete/<%=klient.IdKlient %>"
+                                    class="list-actions-button-delete">Usuń</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<p><a class="button-add" href="/klient/add">Dodaj nową pozycję zamówień</a></p>
+
+
+<%- include('../../fragments/footer.ejs') %>

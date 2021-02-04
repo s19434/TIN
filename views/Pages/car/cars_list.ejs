@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista produktów</h2>
+    <div class="lista">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Marka</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Rok produkcji</th>
+                    <th scope="col">Cena za dzień</th>
+                    <th scope="col">Funkcjonalność</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <% for (let Samochod of samochodList) { %>
+                <tr>
+                    <td><%= Samochod.Marka %></td>
+                    <td><%= Samochod.Model %></td>
+                    <td><%= Samochod.Rok_Produkcji %></td>
+                    <td><%= Samochod.Cena_Za_Dzien %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/samochod/details/<%=Samochod.IdSamochod%>"
+                                    class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/samochod/edit/<%=Samochod.IdSamochod%>"
+                                    class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/samochod/delete/<%=Samochod.IdSamochod%>"
+                                    class="list-actions-button-delete">Usuń</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+
+        </table>
+    </div>
+</main>
+
+<p><a class="button-add" href="/samochod/add">Dodaj nową pozycję zamówień</a></p>
+
+<%- include('../../fragments/footer.ejs') %>

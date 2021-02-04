@@ -1,0 +1,33 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Szczegóły pozycji zamówień</h2>
+    <form class="form" action="WyświetlSzczegółyPozycjiZamówień">
+        <label for="Zamówienie">Kupiec:</label>
+        <select name="Zamówienie" id="Zamówienie" disabled>
+            <option value="IdKlient">Jan Kowalski</option>
+        </select>
+        <span></span>
+
+        <label for="Produkt">Nazwa produktu:</label>
+        <select name="Produkt" id="Produkt" disabled>
+            <option value="IdProdukt">Play Station 5</option>
+        </select>
+        <span></span>
+
+        <label for="Rabat">Rabat(%):</label>
+        <input type="number" name="Rabat" id="Rabat" value="3" disabled />
+        <span></span>
+
+        <label for="Ilość">Ilość:</label>
+        <input type="number" name="Ilość" id="Ilość" value="1" disabled />
+
+
+
+        <div class="form-buttons">
+            <a href="/PozycjaZamowien/add" class="form-button-edit">Edytuj</a>
+            <a href="/PozycjaZamowien" class="form-button-cancel">Anuluj</a>
+        </div>
+
+</main>
+<%- include('../../fragments/footer.ejs') %>

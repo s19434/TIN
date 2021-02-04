@@ -1,0 +1,94 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="/JS/walidacjaKlienta.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%= formAction %>" novalidate>
+
+        <!-- onsubmit="return validateForm();" -->
+
+        <input type="hidden" name="IdKlient" value="<%= klient.IdKlient %>">
+
+        <label for="name">Imie:<sup>*</sup></label>
+        <input type="text" name="name" id="name" placeholder="2-40 znaków" value="<%= klient.Imie %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+        <label for="surname">Nazwisko:<sup>*</sup></label>
+        <input type="text" name="surname" id="surname" placeholder="2-40 znaków" value="<%= klient.Nazwisko %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+        <label for="DateOfBirth">Data przyjęcia:<sup>*</sup></label>
+        <input type="date" name="DateOfBirth" id="DateOfBirth" value="<%= klient.Data_Urodzenia %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+        <label for="Telephone">Telefon:</label>
+        <input class="Telephone" type="number" name="Telephone" id="Telephone" placeholder="np. 666777888"
+               value="<%= klient.Telefon %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+        <label for="Email">Adres email:<sup>*</sup></label>
+        <input type="email" name="Email" id="Email" placeholder="np. nazwa@domeena.pl" value="<%= klient.Email %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+        <label for="Address">Adres:<sup>*</sup></label>
+        <input type="text" name="Address" id="Address" placeholder="np. Near 1" value="<%= klient.Nazwisko %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
+
+
+        <% if (formMode == 'showDetails') { %>
+        <div class="form-buttons">
+            <a href="/klient/edit/<%= klient.IdKlient %>" class="form-button-edit-detail">Edytuj</a>
+        </div>
+        <% }else { %>
+        <div class="form-buttons">
+            <input class="form-button-submit" type="submit" value="<%= btnLabel %>"/>
+            <span id="errorsSummary" class="errors-text"></span>
+        </div>
+        <% } %>
+
+    </form>
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+            Szczegóły pozycji zamówień
+        </h2>
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>Marka</th>
+                <th>Data wynajęcia</th>
+                <th>Data oddania</th>
+                <th>Cena za wynajęcie</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let k of klient.wynajecia) { %>
+            <tr>
+
+                <td><a href="/samochod/details/<%= k.samochody.IdSamochod %>"><%= k.samochody.Marka %></a></td>
+                <td><%= k.Data_Wynajecia %></td>
+                <td><%= k.Data_Oddania %></td>
+                <td>
+                    <%= (daysBetween(k.Data_Wynajecia, k.Data_Oddania)) * (k.samochody.Cena_Za_Dzien) %>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+    <div class="form-buttons">
+        <% if (formMode != 'showDetails') { %>
+            <a class="form-button-cancel" href="/klient">Anuluj</a>
+        <% } else { %>
+            <a class="form-button-cancel" href="/klient">Powrót</a>
+        <% } %>
+    </div>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

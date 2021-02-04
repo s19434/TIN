@@ -1,0 +1,46 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Lista pozycji zamówień</h2>
+    <div class="lista">
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th scope="col">Imie Nazwisko</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Data wynajęcia</th>
+                    <th scope="col">Data oddania</th>
+                    <th scope="col">Cena za wynajęcie</th>
+                    <th scope="col">Funkcjonalność</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let w of wynajecieList) { %>
+                <tr>
+                    <td><a><%= w.klienty.Imie%> <%= w.klienty.Nazwisko %></a> %></td>
+                    <td><%= w.samochody.Model %></td>
+                    <td><%= w.Data_Wynajecia %></td>
+                    <td><%= w.Data_Oddania %></td>
+                    <td>
+                        <%= (daysBetween(w.Data_Wynajecia, w.Data_Oddania)) * (w.samochody.Cena_Za_Dzien) %>
+                    </td>
+                    <td>
+                        <ul class="list-actions">
+                            <li><a href="/wynajecie/details/<%=w.IdWynajecie%>"
+                                    class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/wynajecie/edit/<%=w.IdWynajecie%>"
+                                    class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/wynajecie/delete/<%=w.IdWynajecie%>"
+                                    class="list-actions-button-delete">Usuń</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<p><a class="button-add" href="/wynajecie/add">Dodaj nowe wynajęcie</a></p>
+
+<%- include('../../fragments/footer.ejs') %>

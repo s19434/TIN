@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car & Bikes Rentals</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <script type="application/javascript" src="/JS/validationCommon.js"></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Car & Bikes Rentals</h1>
+        <img src="/Images/logo.png" alt="Car & Bikes Rentals Logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
+            <li><a href="/wynajecie" class="<%= navLocation == 'wynajecie' ? 'active' : ''%>">Wynajęcie</a></li>
+            <li><a href="/klient" class="<%= navLocation == 'klienty' ? 'active' : ''%>">Klienci</a></li>
+            <li><a href="/samochod" class="<%= navLocation == 'samochod' ? 'active' : ''%>">Samochody</a></li>
+        </ul>
+    </nav>

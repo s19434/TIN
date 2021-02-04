@@ -1,0 +1,74 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <h2>Szczegóły zamówień</h2>
+    <form class="form" action="WyświetlSzczegółyZamówienia">
+
+        <label for="Imie">Imie:</label>
+        <input type="text" name="Imie" id="Imie" value="Jan" disabled />
+        <span></span>
+
+        <label for="Nazwisko">Nazwisko:</label>
+        <input type="text" name="Nazwisko" id="Nazwisko" value="Kowalski" disabled />
+        <span></span>
+
+        <label for="Kwota">Kwota(zł):</label>
+        <input type="number" name="Kwota" id="Kwota" value="2299" disabled />
+        <span></span>
+
+        <label for="Email">Adres email:</label>
+        <input type="email" name="Email" id="Email" value="janKowalski@gmail.com" disabled />
+        <span></span>
+
+        <label for="NumerTel">Numer telefonu:</label>
+        <input type="tel" name="NumerTel" id="NumerTel" value="666999666" disabled />
+        <span></span>
+
+        <label for="DataPrzyjecia">Data przyjęcia:</label>
+        <input type="date" name="DataPrzyjecia" id="DataPrzyjecia" value="2020-10-23" disabled />
+        <span></span>
+
+        <label for="DataRealizacji">Data realizacji:</label>
+        <input type="date" name="DataRealizacji" id="DataRealizacji" value="2020-10-25" disabled />
+
+        <div class="form-buttons">
+            <a href="/Zamowienia/add" class="form-button-edit-detail">Edytuj</a>
+        </div>
+
+    </form>
+
+    <h2>Szczegóły pozycji zamówień</h2>
+    <table class="table-list tableList-details">
+        <tbody>
+            <thead>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Rabat</th>
+                    <th>Ilosc</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Play Station 5</td>
+                <td>5%</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Nintendo Switch</td>
+                <td>7%</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Corsair K55 RGB</td>
+                <td>Brak</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-buttons">
+        <a class="form-button-cancel-detail" href="/Zamowienia/">Powrót</a>
+    </div>
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,89 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="/JS/walidacjaSamochodu.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate >
+
+        <!-- onsubmit="return validateForm();" -->
+        <input type="hidden" name="IdSamochod" id="IdSamochod" value="<%= samochod.IdSamochod %>">
+
+        <label for="Brand">Marka:<sup>*</sup></label>
+        <input type="text" name="Brand" id="Brand" placeholder="3-30 znaków" value="<%= samochod.Marka %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorBrand" class="errors-text"></span>
+
+
+        <label for="Model">Model<sup>*</sup></label>
+        <input type="text" name="Model" id="Model" placeholder="2-20 znaków"
+            value="<%= samochod.Model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorModel" class="errors-text"></span>
+
+        <label for="PricePerDay">Cena za dzień(zł):<sup>*</sup></label>
+        <input type="number" name="PricePerDay" id="PricePerDay" placeholder="np. 65" value="<%= samochod.Cena_Za_Dzien %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorDay" class="errors-text"></span>
+
+        <label for="YearOfManufacture">Rok produkcji:<sup>*</sup></label>
+        <input type="date" name="YearOfManufacture" id="YearOfManufacture" value="<%= samochod.Rok_Produkcji %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorYear" class="errors-text"></span>
+
+        <% if (formMode == 'showDetails') { %>
+        <div class="form-buttons">
+            <a href="/samochod/edit/<%=samochod.IdSamochod%>" class="form-button-edit-detail">Edytuj</a>
+        </div>
+        <% }else { %>
+
+        <div class="form-buttons">
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <span id="errorsSummary" class="errors-text"></span>
+        </div>
+
+        <% } %>
+
+
+
+    </form>
+
+    <%if (formMode == 'showDetails' || formMode == 'edit') { %>
+    <h2>
+        Szczegóły wypożyczeń samochodu
+    </h2>
+    <table class="table-list">
+        <thead>
+            <tr>
+                <th>Data wynajęcia</th>
+                <th>Data oddania</th>
+                <th>Cena za wynajęcie</th>
+                <th>Klient</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let p of samochod.wynajecia) { %>
+            <tr>
+                <td><%= p.Data_Wynajecia %></td>
+                <td><%= p.Data_Oddania %></td>
+                <td>
+                    <%=  (daysBetween(p.Data_Wynajecia, p.Data_Oddania)) * (samochod.Cena_Za_Dzien)%>
+                </td>
+                <td><a href="/klient/details/<%= p.klienty.IdKlient %> "><%= p.klienty.Imie %> <%= p.klienty.Nazwisko %></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% } %>
+
+
+    <div class="form-buttons">
+
+        <% if (formMode != 'showDetails') { %>
+        <a class="form-button-cancel" href="/samochod">Anuluj</a>
+        <% } else { %>
+        <a class="form-button-cancel" href="/samochod">Powrót</a>
+        <% } %>
+    </div>
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

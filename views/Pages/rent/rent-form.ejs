@@ -1,0 +1,107 @@
+<%- include('../../fragments/header.ejs') %>
+
+<main>
+    <script type="application/javascript" src="/JS/walidacjaWynajecia.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate >
+
+        <!-- onsubmit="return validateForm();" -->
+
+
+        <input type="hidden" name="IdZamowienieProdukt" value="<%= wynajecie.IdWynajecie  %>">
+
+        <label for="Klient">Klient:<sup>*</sup></label>
+        <select id="Klient" name="Klient_IdKlient" required
+            <%= (formMode == 'showDetails' || formMode == 'edit' ) ? 'disabled' : ''%>>
+            <option value="" selected>--- Wybierz klienta ---</option>
+
+            <% if (formMode == 'showDetails') { %>
+            <option selected value="<%= wynajecie.Klient_IdKlient %>"
+                label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
+            <% } else if(formMode == 'edit'){ %>
+            <option selected value="<%= wynajecie.Klient_IdKlient %>"
+                label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
+            <% }else { %>
+            <% for (let i=0; i<allKlient.length; i++) { let w = allKlient[i]; %>
+            <option value="<%= w.IdZamowienie %>" label="<%= w.Imie + ' ' + w.Nazwisko %>">
+            </option>
+            </option>
+            <% } %>
+            <% } %>
+        </select>
+
+
+
+
+        <label for="Samochod">Samochod:<sup>*</sup></label>
+        <select id="Samochod" name="Samochod_IdSamochod" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
+            <option value="" selected>--- Wybierz produkt ---</option>
+
+            <% if (formMode == 'showDetails') { %>
+            <option selected value="<%= wynajecie.Samochod_IdSamochod  %>"
+                label="<%= wynajecie.samochody.Marka %>"></option>
+            <% } else if(formMode == 'edit'){ %>
+            <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
+                label="<%= wynajecie.samochody.Marka %>"></option>
+            <% for (let i=0; i<samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
+            <% if(wynajecie.samochody.Marka != s.Marka ){ %>
+            <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+            </option>
+            <%} %>
+            <% } %>
+            
+            <% }else { %>
+            <% for (let i=0; i<allSamochod.length; i++) { let s = allSamochod[i]; %>
+            <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+            </option>
+            <% } %>
+            <% } %>
+        </select>
+
+
+
+
+
+        <label for="RentalDate">Data wynajęcia:</label>
+        <input type="date" name="RentalDate" id="RentalDate" value="<%= wynajecie.Data_Wynajecia %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+
+
+        <label for="EndDate">Data oddania:<sup>*</sup></label>
+        <input type="date" name="EndDate" id="EndDate" value="<%= wynajecie.Data_Oddania %>"
+            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+
+
+        <% if (formMode == 'showDetails') { %>
+
+
+        <% } %>
+
+
+
+        <% if (formMode == 'showDetails'){ %>
+        <div class="form-buttons">
+            <a href="/wynajecie/edit/<%=wynajecie.IdWynajecie%>"
+                class="form-button-edit-detail">Edytuj</a>
+        </div>
+        <% }else { %>
+        <div class="form-buttons">
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <span id="errorsSummary" class="errors-text"></span>
+        </div>
+        <% } %>
+
+    </form>
+
+    <div class="form-buttons">
+
+        <% if (formMode != 'showDetails') { %>
+        <a class="form-button-cancel" href="/wynajecie">Anuluj</a>
+        <% } else { %>
+        <a class="form-button-cancel" href="/wynajecie">Powrót</a>
+        <% } %>
+    </div>
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
