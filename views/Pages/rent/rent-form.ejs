@@ -6,12 +6,38 @@
     <form class="form" method="post" action="<%=formAction%>" novalidate >
 
         <!-- onsubmit="return validateForm();" -->
+        <input type="hidden" name="IdWynajecie" value="<%= wynajecie.IdWynajecie  %>">
+
+        <label for="Samochod_IdSamochod">Samochod:<sup>*</sup></label>
+        <select id="Samochod_IdSamochod" name="Samochod_IdSamochod" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
+            <option value="" selected>--- Wybierz produkt ---</option>
+
+            <% if (formMode == 'showDetails') { %>
+                <option selected value="<%= wynajecie.Samochod_IdSamochod  %>"
+                        label="<%= wynajecie.samochody.Marka %>"></option>
+            <% } else if(formMode == 'edit'){ %>
+                <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
+                        label="<%= wynajecie.samochody.Marka %>"></option>
+                <% for (let i=0; i<samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
+                <% if(wynajecie.samochody.Marka != s.Marka ){ %>
+                    <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+                    </option>
+                <%} %>
+                <% } %>
+
+            <% }else { %>
+                <% for (let i=0; i<allSamochod.length; i++) { let s = allSamochod[i]; %>
+                <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+                </option>
+                <% } %>
+            <% } %>
+        </select>
+        <span></span>
 
 
-        <input type="hidden" name="IdZamowienieProdukt" value="<%= wynajecie.IdWynajecie  %>">
 
-        <label for="Klient">Klient:<sup>*</sup></label>
-        <select id="Klient" name="Klient_IdKlient" required
+        <label for="Klient_IdKlient">Klient:<sup>*</sup></label>
+        <select id="Klient_IdKlient" name="Klient_IdKlient" required
             <%= (formMode == 'showDetails' || formMode == 'edit' ) ? 'disabled' : ''%>>
             <option value="" selected>--- Wybierz klienta ---</option>
 
@@ -29,48 +55,18 @@
             <% } %>
             <% } %>
         </select>
+        <span></span>
 
 
-
-
-        <label for="Samochod">Samochod:<sup>*</sup></label>
-        <select id="Samochod" name="Samochod_IdSamochod" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
-            <option value="" selected>--- Wybierz produkt ---</option>
-
-            <% if (formMode == 'showDetails') { %>
-            <option selected value="<%= wynajecie.Samochod_IdSamochod  %>"
-                label="<%= wynajecie.samochody.Marka %>"></option>
-            <% } else if(formMode == 'edit'){ %>
-            <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
-                label="<%= wynajecie.samochody.Marka %>"></option>
-            <% for (let i=0; i<samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
-            <% if(wynajecie.samochody.Marka != s.Marka ){ %>
-            <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
-            </option>
-            <%} %>
-            <% } %>
-            
-            <% }else { %>
-            <% for (let i=0; i<allSamochod.length; i++) { let s = allSamochod[i]; %>
-            <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
-            </option>
-            <% } %>
-            <% } %>
-        </select>
-
-
-
-
-
-        <label for="RentalDate">Data wynajęcia:</label>
-        <input type="date" name="RentalDate" id="RentalDate" value="<%= wynajecie.Data_Wynajecia %>"
+        <label for="Data_Wynajecia">Data wynajęcia:</label>
+        <input type="date" name="Data_Wynajecia" id="Data_Wynajecia" value="<%= wynajecie.Data_Wynajecia %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span></span>
 
-
-        <label for="EndDate">Data oddania:<sup>*</sup></label>
-        <input type="date" name="EndDate" id="EndDate" value="<%= wynajecie.Data_Oddania %>"
+        <label for="Data_Oddania">Data oddania:<sup>*</sup></label>
+        <input type="date" name="Data_Oddania" id="Data_Oddania" value="<%= wynajecie.Data_Oddania %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-
+        <span></span>
 
         <% if (formMode == 'showDetails') { %>
 

@@ -9,23 +9,23 @@
 
         <input type="hidden" name="IdKlient" value="<%= klient.IdKlient %>">
 
-        <label for="name">Imie:<sup>*</sup></label>
-        <input type="text" name="name" id="name" placeholder="2-40 znaków" value="<%= klient.Imie %>"
+        <label for="Imie">Imie:<sup>*</sup></label>
+        <input type="text" name="Imie" id="Imie" placeholder="2-40 znaków" value="<%= klient.Imie %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
-        <label for="surname">Nazwisko:<sup>*</sup></label>
-        <input type="text" name="surname" id="surname" placeholder="2-40 znaków" value="<%= klient.Nazwisko %>"
+        <label for="Nazwisko">Nazwisko:<sup>*</sup></label>
+        <input type="text" name="Nazwisko" id="Nazwisko" placeholder="2-40 znaków" value="<%= klient.Nazwisko %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
-        <label for="DateOfBirth">Data przyjęcia:<sup>*</sup></label>
-        <input type="date" name="DateOfBirth" id="DateOfBirth" value="<%= klient.Data_Urodzenia %>"
+        <label for="Data_Urodzenia">Data przyjęcia:<sup>*</sup></label>
+        <input type="date" name="Data_Urodzenia" id="Data_Urodzenia" value="<%= klient.Data_Urodzenia %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
-        <label for="Telephone">Telefon:</label>
-        <input class="Telephone" type="number" name="Telephone" id="Telephone" placeholder="np. 666777888"
+        <label for="Telefon">Telefon:</label>
+        <input class="Telefon" type="number" name="Telefon" id="Telefon" placeholder="np. 666777888"
                value="<%= klient.Telefon %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
@@ -34,8 +34,8 @@
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
-        <label for="Address">Adres:<sup>*</sup></label>
-        <input type="text" name="Address" id="Address" placeholder="np. Near 1" value="<%= klient.Nazwisko %>"
+        <label for="Adres">Adres:<sup>*</sup></label>
+        <input type="text" name="Adres" id="Adres" placeholder="np. Near 1" value="<%= klient.Nazwisko %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 

@@ -8,8 +8,8 @@
         <!-- onsubmit="return validateForm();" -->
         <input type="hidden" name="IdSamochod" id="IdSamochod" value="<%= samochod.IdSamochod %>">
 
-        <label for="Brand">Marka:<sup>*</sup></label>
-        <input type="text" name="Brand" id="Brand" placeholder="3-30 znaków" value="<%= samochod.Marka %>"
+        <label for="Marka">Marka:<sup>*</sup></label>
+        <input type="text" name="Marka" id="Marka" placeholder="3-30 znaków" value="<%= samochod.Marka %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorBrand" class="errors-text"></span>
 
@@ -19,13 +19,13 @@
             value="<%= samochod.Model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorModel" class="errors-text"></span>
 
-        <label for="PricePerDay">Cena za dzień(zł):<sup>*</sup></label>
-        <input type="number" name="PricePerDay" id="PricePerDay" placeholder="np. 65" value="<%= samochod.Cena_Za_Dzien %>"
+        <label for="Cena_Za_Dzien">Cena za dzień(zł):<sup>*</sup></label>
+        <input type="number" name="Cena_Za_Dzien" id="Cena_Za_Dzien" placeholder="np. 65" value="<%= samochod.Cena_Za_Dzien %>"
             <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorDay" class="errors-text"></span>
 
-        <label for="YearOfManufacture">Rok produkcji:<sup>*</sup></label>
-        <input type="date" name="YearOfManufacture" id="YearOfManufacture" value="<%= samochod.Rok_Produkcji %>"
+        <label for="Rok_Produkcji">Rok produkcji:<sup>*</sup></label>
+        <input type="date" name="Rok_Produkcji" id="Rok_Produkcji" value="<%= samochod.Rok_Produkcji %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorYear" class="errors-text"></span>
 

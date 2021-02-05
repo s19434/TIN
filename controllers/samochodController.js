@@ -1,7 +1,6 @@
 const SamochodRepository = require('../repository/sequelize/SamochodRepository');
 
     exports.showSamochodList = (req, res, next) => {
-
     SamochodRepository.getSamochod()
         .then(samochodList => {
             res.render('Pages/car/cars_list', {
@@ -9,7 +8,7 @@ const SamochodRepository = require('../repository/sequelize/SamochodRepository')
                 navLocation: 'samochod'
             });
         })
-}
+};
 
 
 exports.showAddSamochodForm = (req, res, next) => {
@@ -23,7 +22,7 @@ exports.showAddSamochodForm = (req, res, next) => {
         validationErrors: []
 
     });
-}
+};
 
 exports.showEditSamochodForm = (req, res, next) => {
     const samochodID = req.params.samochodID;
@@ -54,7 +53,7 @@ exports.showSamochodDetails = (req, res, next) => {
                 validationErrors: []
             });
         });
-}
+};
 
 
 
@@ -90,20 +89,18 @@ exports.updateSamochod = (req, res, next) => {
     SamochodRepository.updateSamochod(samochodID, samochodData)
         .then(result => {
             res.redirect('/samochod');
+        }) .catch(err => {
+            res.render('Pages/car/cars_form', {
+                samochod: samochodData,
+                pageTitle: 'Dodawanie samochodu',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj',
+                formAction: '/samochod/add',
+                navLocation: 'samochod',
+                validationErrors: err.errors
+            });
         });
 };
-//         .catch(err => {
-//             res.render('Pages/car/cars_form', {
-//                 samochod: samochodData,
-//                 pageTitle: 'Dodawanie samochodu',
-//                 formMode: 'createNew',
-//                 btnLabel: 'Dodaj',
-//                 formAction: '/samochod/add',
-//                 navLocation: 'samochod',
-//                 validationErrors: err.errors
-//             });
-//         });
-// };
 
 exports.deleteSamochod = (req, res, next) => {
     const samochodID = req.params.samochodID;
