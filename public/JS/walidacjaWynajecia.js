@@ -1,14 +1,14 @@
 function validateForm() {
 
-    const passportId = document.getElementById('PassportId');
-    const carId = document.getElementById('CarId');
-    const rentalDate = document.getElementById('RentalDate');
-    const endDate = document.getElementById('EndDate');
+    const passportId = document.getElementById('Samochod_IdSamochod');
+    const carId = document.getElementById('Klient_IdKlient');
+    const rentalDate = document.getElementById('Data_Wynajecia');
+    const endDate = document.getElementById('Data_Oddania');
 
 
 
-    const errorPassportId = document.getElementById('errorPassportId');
-    const errorCarId = document.getElementById('errorCarId');
+    const errorPassportId = document.getElementById('errorSamochod');
+    const errorCarId = document.getElementById('errorKlient');
     const errorRentalDate = document.getElementById('errorRentalDate');
     const errorEndDate = document.getElementById('errorEndDate');
 

@@ -109,33 +109,33 @@ exports.showWynajecieDetails = (req, res, next) => {
 
 exports.addWynajecie = (req, res, next) => {
 
-    // let klientGetAll = KlientRepository.getKlient();
-    // let samochodGetAll = SamochodRepository.getSamochod();
-    // let wynajecieGetAll = WynajecieRepository.getWynajecie();
+    let klientGetAll = KlientRepository.getKlient();
+    let samochodGetAll = SamochodRepository.getSamochod();
+    let wynajecieGetAll = WynajecieRepository.getWynajecie();
 
     const wynajecieData = { ...req.body };
     WynajecieRepository.createWynajecie(wynajecieData)
         .then(result => {
             res.redirect('/wynajecie');
         })
-        // .catch(err => {
-        //     Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll]).then(results => {
-        //         const [zam, prod, pozZam] = results;
-        //         res.render('Pages/rent/rent-form', {
-        //             wynajecie: wynajecieData,
-        //             pageTitle: 'Nowe wynajecie',
-        //             formMode: 'createNew',
-        //             btnLabel: 'Dodaj',
-        //             formAction: '/wynajecie/add',
-        //             navLocation: 'wynajecie',
-        //             validationErrors: err.errors,
-        //             allKlient: zam,
-        //             allSamochod: prod,
-        //             allWynajecie: pozZam
-        //         });
-        //
-        //     })
-        // });
+        .catch(err => {
+            Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll]).then(results => {
+                const [zam, prod, pozZam] = results;
+                res.render('Pages/rent/rent-form', {
+                    wynajecie: wynajecieData,
+                    pageTitle: 'Nowe wynajecie',
+                    formMode: 'createNew',
+                    btnLabel: 'Dodaj',
+                    formAction: '/wynajecie/add',
+                    navLocation: 'wynajecie',
+                    validationErrors: err.errors,
+                    allKlient: zam,
+                    allSamochod: prod,
+                    allWynajecie: pozZam
+                });
+
+            })
+        });
 };
 
 

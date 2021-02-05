@@ -32,7 +32,11 @@
                 <% } %>
             <% } %>
         </select>
-        <span></span>
+        <span id="errorSamochod" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Samochod_IdSamochod'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Samochod_IdSamochod')).message %>
+            <% } %>
+        </span>
 
 
         <label for="Klient_IdKlient">Klient:<sup>*</sup></label>
@@ -59,18 +63,30 @@
                 <% } %>
             <% } %>
         </select>
-        <span></span>
+        <span id="errorKlient" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Klient_IdKlient'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Klient_IdKlient')).message %>
+            <% } %>
+        </span>
 
 
         <label for="Data_Wynajecia">Data wynajęcia:</label>
         <input type="date" name="Data_Wynajecia" id="Data_Wynajecia" value="<%= wynajecie.Data_Wynajecia %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span></span>
+        <span id="errorRentalDate" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Data_Wynajecia'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Data_Wynajecia')).message %>
+            <% } %>
+        </span>
 
         <label for="Data_Oddania">Data oddania:<sup>*</sup></label>
         <input type="date" name="Data_Oddania" id="Data_Oddania" value="<%= wynajecie.Data_Oddania %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span></span>
+        <span id="errorEndDate" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Data_Wynajecia'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Data_Wynajecia')).message %>
+            <% } %>
+        </span>
 
         <% if (formMode == 'showDetails') { %>
 
