@@ -48,7 +48,14 @@ const Samochod = sequelize.define('Samochod', {
             },
             isDate: {
                 msg: "Pole powinno być datą"
-            }
+            },
+            inFuture: function (value) {
+                const valueDate = new Date(value);
+                const compareToDate = new Date();
+                if (valueDate.getTime() > compareToDate.getTime()) {
+                    throw new Error('Data produkcji nie może być w przyszłości!');
+                }
+            },
         }
     },
     Cena_Za_Dzien: {
