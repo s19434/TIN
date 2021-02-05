@@ -3,84 +3,100 @@
 <main>
     <script type="application/javascript" src="/JS/walidacjaSamochodu.js"></script>
     <h2><%= pageTitle %></h2>
-    <form class="form" method="post" action="<%=formAction%>" novalidate >
+    <form class="form" method="post" action="<%= formAction %>" novalidate>
 
         <!-- onsubmit="return validateForm();" -->
         <input type="hidden" name="IdSamochod" id="IdSamochod" value="<%= samochod.IdSamochod %>">
 
         <label for="Marka">Marka:<sup>*</sup></label>
         <input type="text" name="Marka" id="Marka" placeholder="3-30 znaków" value="<%= samochod.Marka %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span id="errorBrand" class="errors-text"></span>
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorBrand" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Marka'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Marka')).message %>
+            <% } %>
+        </span>
 
 
         <label for="Model">Model<sup>*</sup></label>
         <input type="text" name="Model" id="Model" placeholder="2-20 znaków"
-            value="<%= samochod.Model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span id="errorModel" class="errors-text"></span>
+               value="<%= samochod.Model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorModel" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Model'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Model')).message %>
+            <% } %>
+        </span>
 
         <label for="Cena_Za_Dzien">Cena za dzień(zł):<sup>*</sup></label>
-        <input type="number" name="Cena_Za_Dzien" id="Cena_Za_Dzien" placeholder="np. 65" value="<%= samochod.Cena_Za_Dzien %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span id="errorDay" class="errors-text"></span>
+        <input type="number" name="Cena_Za_Dzien" id="Cena_Za_Dzien" placeholder="np. 65"
+               value="<%= samochod.Cena_Za_Dzien %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorDay" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Cena_Za_Dzien'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Cena_Za_Dzien')).message %>
+            <% } %>
+        </span>
 
         <label for="Rok_Produkcji">Rok produkcji:<sup>*</sup></label>
         <input type="date" name="Rok_Produkcji" id="Rok_Produkcji" value="<%= samochod.Rok_Produkcji %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
-        <span id="errorYear" class="errors-text"></span>
+        <span id="errorYear" class="errors-text">
+            <% if (validationErrors.find(e => e.path.includes('Rok_Produkcji'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Rok_Produkcji')).message %>
+            <% } %>
+        </span>
 
         <% if (formMode == 'showDetails') { %>
         <div class="form-buttons">
-            <a href="/samochod/edit/<%=samochod.IdSamochod%>" class="form-button-edit-detail">Edytuj</a>
+            <a href="/samochod/edit/<%= samochod.IdSamochod %>" class="form-button-edit-detail">Edytuj</a>
         </div>
         <% }else { %>
 
         <div class="form-buttons">
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <input class="form-button-submit" type="submit" value="<%= btnLabel %>"/>
             <span id="errorsSummary" class="errors-text"></span>
         </div>
 
         <% } %>
 
-
-
     </form>
 
-    <%if (formMode == 'showDetails' || formMode == 'edit') { %>
-    <h2>
-        Szczegóły wypożyczeń samochodu
-    </h2>
-    <table class="table-list">
-        <thead>
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>
+            Szczegóły wypożyczeń samochodu
+        </h2>
+        <table class="table-list">
+            <thead>
             <tr>
                 <th>Data wynajęcia</th>
                 <th>Data oddania</th>
                 <th>Cena za wynajęcie</th>
                 <th>Klient</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <% for (let p of samochod.wynajecia) { %>
-            <tr>
-                <td><%= p.Data_Wynajecia %></td>
-                <td><%= p.Data_Oddania %></td>
-                <td>
-                    <%=  (daysBetween(p.Data_Wynajecia, p.Data_Oddania)) * (samochod.Cena_Za_Dzien)%>
-                </td>
-                <td><a href="/klient/details/<%= p.klienty.IdKlient %> "><%= p.klienty.Imie %> <%= p.klienty.Nazwisko %></a></td>
-            </tr>
+                <tr>
+                    <td><%= p.Data_Wynajecia %></td>
+                    <td><%= p.Data_Oddania %></td>
+                    <td>
+                        <%= (daysBetween(p.Data_Wynajecia, p.Data_Oddania)) * (samochod.Cena_Za_Dzien) %>
+                    </td>
+                    <td>
+                        <a href="/klient/details/<%= p.klienty.IdKlient %> "><%= p.klienty.Imie %> <%= p.klienty.Nazwisko %></a>
+                    </td>
+                </tr>
             <% } %>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     <% } %>
-
 
     <div class="form-buttons">
 
         <% if (formMode != 'showDetails') { %>
-        <a class="form-button-cancel" href="/samochod">Anuluj</a>
+            <a class="form-button-cancel" href="/samochod">Anuluj</a>
         <% } else { %>
-        <a class="form-button-cancel" href="/samochod">Powrót</a>
+            <a class="form-button-cancel" href="/samochod">Powrót</a>
         <% } %>
     </div>
 

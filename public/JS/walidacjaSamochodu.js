@@ -1,10 +1,10 @@
 function validateForm() {
 
-    const NumerSamochod = document.getElementById('IdCar');
-    const brand = document.getElementById('Brand');
+    const NumerSamochod = document.getElementById('IdSamochod');
+    const brand = document.getElementById('Marka');
     const model = document.getElementById('Model');
-    const yearOfManufacture = document.getElementById('YearOfManufacture');
-    const pricePerDay = document.getElementById('PricePerDay');
+    const yearOfManufacture = document.getElementById('Rok_Produkcji');
+    const pricePerDay = document.getElementById('Cena_Za_Dzien');
 
 
 
