@@ -104,7 +104,7 @@ exports.showWynajecieDetails = (req, res, next) => {
                 validationErrors: []
             });
         });
-}
+};
 
 
 exports.addWynajecie = (req, res, next) => {

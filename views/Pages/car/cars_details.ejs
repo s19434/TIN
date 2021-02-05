@@ -1,61 +1,64 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <h2>Szczegóły produktu</h2>
-    <form class="form" action="WyświetlSzczegółyProduktu">
-        <label for="Nazwa">Nazwa:</label>
-        <input type="text" name="Nazwa" id="Nazwa" value="Play Station 5" disabled />
+    <h1>Szczegóły samochodu</h1>
+
+    <form class="form" action="SzczegółySamochodu">
+
+        <label for="ID">Numer Samochodu:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="ID" value="19874312" id="ID" disabled />
         <span></span>
 
-        <label for="TypProduktu">Typ produktu:</label>
-        <input type="text" name="TypProduktu" id="TypProduktu" value="Konsola" disabled />
+
+        <label for="Brand">Marka:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="Brand" value="Tesla" id="Brand" disabled />
         <span></span>
 
-        <label for="Gwarancja">Gwarancja (lata):</label>
-        <input type="number" name="Gwarancja" id="Gwarancja" value="2" disabled />
+
+        <label for="Model">Model:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="Model" value="Model s" id="Model" disabled />
         <span></span>
 
-        <label for="Cena">Cena(zł):</label>
-        <input type="number" name="Cena" id="Cena" value="2299" disabled />
+
+        <label for="YearOfManufacture">Rok produkcji:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="YearOfManufacture" value="2020" id="YearOfManufacture" disabled />
         <span></span>
 
-        <label for="Kolor">Kolor:</label>
-        <input type="text" name="Kolor" id="Kolor" value="Bialo czarny" disabled />
+
+        <label for="PricePerDay">Cena za dzień:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="PricePerDay" value="150" id="PricePerDay" disabled />
+        <span></span>
 
         <div class="form-buttons">
-            <a href="/samochod/add" class="form-button-edit-detail">Edytuj</a>
+            <a href="cars_form.html" class="form-button-edit-detail">Edytuj</a>
         </div>
-
-
     </form>
 
-    <h2>Szczegóły pozycji zamówień</h2>
-    <table class="table-list tableList-details">
+
+    <h1>Szczegóły wypożyczeń samochodu</h1>
+
+    <table class="table-list">
         <thead>
-            <tr>
-                <th>Produkt</th>
-                <th>Rabat</th>
-                <th>Ilosc</th>
-                <th>Nazwisko</th>
-            </tr>
+        <tr>
+            <th>Numer Paszportu</th>
+            <th>Data wynajęcia</th>
+            <th>Data oddania</th>
+            <th>Cena za wynajęcie</th>
+        </tr>
         </thead>
+
         <tr>
-            <td>Play Station 5</td>
-            <td>5%</td>
-            <td>1</td>
-            <td>Kowalski</td>
+            <td  data-label="Numer Paszportu">FL86454</td>
+            <td  data-label="Data wynajęcia">09.11.2020</td>
+            <td  data-label="Data oddania">11.11.2020</td>
+            <td  data-label="Cena za wynajęcie">300</td>
         </tr>
+
         <tr>
-            <td>Nintendo Switch</td>
-            <td>7%</td>
-            <td>3</td>
-            <td>Nowak</td>
-        </tr>
-        <tr>
-            <td>Corsair K55 RGB</td>
-            <td>Brak</td>
-            <td>1</td>
-            <td>Brzęczyszczykiewicz</td>
+            <td  data-label="Numer Paszportu">FL86454</td>
+            <td  data-label="Data wynajęcia">24.11.2020</td>
+            <td  data-label="Data oddania">27.11.2020</td>
+            <td  data-label="Cena za wynajęcie">450</td>
         </tr>
 
         <tbody>
@@ -64,10 +67,15 @@
     </table>
 
     <div class="form-buttons">
-        <a class="form-button-cancel-detail" href="/Produkty">Powrót</a>
+        <a href="cars_list.html" class="form-button-cancel-detail">Powrót</a>
     </div>
 
 
+    <a class="BackToTopHref" href="#top">
+        <div class="BackToTop">
+            ON THE TOP
+        </div>
+    </a>
 
 </main>
 

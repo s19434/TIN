@@ -46,7 +46,14 @@ const Klient = sequelize.define('Klient', {
             },
             isDate: {
                 msg: "Pole powinno być datą"
-            }
+            },
+            inFuture: function (value) {
+                const valueDate = new Date(value);
+                const compareToDate = new Date();
+                if (valueDate.getTime() > compareToDate.getTime()) {
+                    throw new Error('Data urodzenia nie może być w przyszłości!');
+                }
+            },
         }
     },
     Telefon: {
@@ -57,7 +64,8 @@ const Klient = sequelize.define('Klient', {
                 msg: "Pole jest wymagane"
             },
             len: {
-                msg: "Pole powinno być numerem telefonu"
+                args: [7, 11],
+                msg: "Numer powinien zawierać od 7 do 11 cyfr!"
             }
 
         }

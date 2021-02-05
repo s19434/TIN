@@ -1,33 +1,47 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <h2>Szczegóły pozycji zamówień</h2>
-    <form class="form" action="WyświetlSzczegółyPozycjiZamówień">
-        <label for="Zamówienie">Kupiec:</label>
-        <select name="Zamówienie" id="Zamówienie" disabled>
-            <option value="IdKlient">Jan Kowalski</option>
-        </select>
+    <h1>Szczegóły wypożyczeń</h1>
+
+
+
+    <form class="form" action="SzczegółyWypożyczeń">
+
+        <label for="PassportId">Numer Paszportu:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="PassportId" value="FL86454" id="PassportId" disabled/>
         <span></span>
 
-        <label for="Produkt">Nazwa produktu:</label>
-        <select name="Produkt" id="Produkt" disabled>
-            <option value="IdProdukt">Play Station 5</option>
-        </select>
+        <label for="CarId">Numer Samochodu:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="CarId" value="19874312" id="CarId" disabled/>
         <span></span>
 
-        <label for="Rabat">Rabat(%):</label>
-        <input type="number" name="Rabat" id="Rabat" value="3" disabled />
+        <label for="RentalDate">Data wynajęcia:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="RentalDate" value="16.11.2020" id="RentalDate" disabled/>
         <span></span>
 
-        <label for="Ilość">Ilość:</label>
-        <input type="number" name="Ilość" id="Ilość" value="1" disabled />
+        <label for="EndDate">Data oddania:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="EndDate" value="23.11.2020" id="EndDate" disabled/>
+        <span></span>
 
+        <label for="RentalPrice">Cena za wynajęcie:<sup style="color:#ff0000">*</sup></label>
+        <input type="number" name="RentalPrice" value="300" id="RentalPrice" disabled/>
+        <span></span>
 
+    </form>
 
-        <div class="form-buttons">
-            <a href="/PozycjaZamowien/add" class="form-button-edit">Edytuj</a>
-            <a href="/PozycjaZamowien" class="form-button-cancel">Anuluj</a>
+    <div class="form-buttons">
+        <a href="rent-form.html" class="form-button-edit-detail"> Edytuj</a>
+    </div>
+
+    <div>
+        <a href="rent-list.html" class="form-button-cancel">Powrót</a>
+    </div>
+
+    <a class="BackToTopHref" href="#top">
+        <div class="BackToTop">
+            ON THE TOP
         </div>
+    </a>
 
 </main>
 <%- include('../../fragments/footer.ejs') %>

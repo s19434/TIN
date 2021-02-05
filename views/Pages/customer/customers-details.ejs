@@ -1,73 +1,85 @@
 <%- include('../../fragments/header.ejs') %>
 
 <main>
-    <h2>Szczegóły zamówień</h2>
-    <form class="form" action="WyświetlSzczegółyZamówienia">
+    <h1>Szczegóły klienta</h1>
 
-        <label for="Imie">Imie:</label>
-        <input type="text" name="Imie" id="Imie" value="Jan" disabled />
+    <form class="form" action="SzczegółyKlienta">
+
+        <label for="PassportId">Numer Paszportu:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="PassportId" value="FL86454" id="PassportId" disabled/>
         <span></span>
 
-        <label for="Nazwisko">Nazwisko:</label>
-        <input type="text" name="Nazwisko" id="Nazwisko" value="Kowalski" disabled />
+        <label for="name">Imie:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="name" value="Lili" id="name" disabled/>
         <span></span>
 
-        <label for="Kwota">Kwota(zł):</label>
-        <input type="number" name="Kwota" id="Kwota" value="2299" disabled />
+        <label for="surname">Nazwisko:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="surname" value="Christensen" id="surname" disabled/>
         <span></span>
 
-        <label for="Email">Adres email:</label>
-        <input type="email" name="Email" id="Email" value="janKowalski@gmail.com" disabled />
+        <label for="DateOfBirth">Data urodzenia:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="DateOfBirth" value="01.05.87" id="DateOfBirth" disabled/>
         <span></span>
 
-        <label for="NumerTel">Numer telefonu:</label>
-        <input type="tel" name="NumerTel" id="NumerTel" value="666999666" disabled />
+        <label for="Telephone">Telefon:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="Telephone" id="Telephone" value="785485147" disabled/>
         <span></span>
 
-        <label for="DataPrzyjecia">Data przyjęcia:</label>
-        <input type="date" name="DataPrzyjecia" id="DataPrzyjecia" value="2020-10-23" disabled />
+        <label for="Email">Email:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="Email" value="wjdawjdaw@gmail.com" id="Email" disabled/>
         <span></span>
 
-        <label for="DataRealizacji">Data realizacji:</label>
-        <input type="date" name="DataRealizacji" id="DataRealizacji" value="2020-10-25" disabled />
+        <label for="Address">Adres:<sup style="color:#ff0000">*</sup></label>
+        <input type="text" name="Address" value="Near 1" id="Address" disabled/>
+        <span></span>
 
         <div class="form-buttons">
-            <a href="/Zamowienia/add" class="form-button-edit-detail">Edytuj</a>
+            <a href="customers-form.html" class="form-button-edit-detail">Edytuj</a>
         </div>
-
     </form>
 
-    <h2>Szczegóły pozycji zamówień</h2>
-    <table class="table-list tableList-details">
+
+    <h1>Szczegóły wypożyczeń</h1>
+
+    <table class="table-list">
+        <thead>
+        <tr>
+            <th>Numer Somochodu</th>
+            <th>Marka</th>
+            <th>Data wynajęcia</th>
+            <th>Data oddania</th>
+            <th>Cena za wynajęcie</th>
+        </tr>
+        </thead>
+
+        <tr>
+            <td data-label="Numer Somochodu">19874312</td>
+            <td data-label="Marka">Tesla</td>
+            <td data-label="Data wynajęcia">09.11.2020</td>
+            <td data-label="Data oddania">11.11.2020</td>
+            <td data-label="Cena za wynajęcie">300</td>
+        </tr>
+        <tr>
+            <td data-label="Numer Somochodu">19874312</td>
+            <td data-label="Marka">Tesla</td>
+            <td data-label="Data wynajęcia">24.11.2020</td>
+            <td data-label="Data oddania">27.11.2020</td>
+            <td data-label="Cena za wynajęcie">450</td>
+        </tr>
         <tbody>
-            <thead>
-                <tr>
-                    <th>Produkt</th>
-                    <th>Rabat</th>
-                    <th>Ilosc</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>Play Station 5</td>
-                <td>5%</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>Nintendo Switch</td>
-                <td>7%</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>Corsair K55 RGB</td>
-                <td>Brak</td>
-                <td>1</td>
-            </tr>
+
         </tbody>
     </table>
 
     <div class="form-buttons">
-        <a class="form-button-cancel-detail" href="/Zamowienia/">Powrót</a>
+        <a href="customers-list.html" class="form-button-cancel-detail">Powrót</a>
     </div>
+
+    <a class="BackToTopHref" href="#top">
+        <div class="BackToTop">
+            ON THE TOP
+        </div>
+    </a>
 
 </main>
 

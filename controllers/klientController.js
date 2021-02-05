@@ -10,7 +10,7 @@ exports.showKlientList = (req, res, next) => {
                 navLocation: 'klienty'
             });
         })
-}
+};
 
 
 exports.showKlientForm = (req, res, next) => {
@@ -23,7 +23,7 @@ exports.showKlientForm = (req, res, next) => {
         navLocation: 'klient',
         validationErrors: []
     });
-}
+};
 
 exports.showEditKlientForm = (req, res, next) => {
     const klientID = req.params.klientID;
@@ -54,12 +54,11 @@ exports.showKlientDetails = (req, res, next) => {
                 validationErrors: []
             });
         });
-}
-
+};
 
 
 exports.addKlient = (req, res, next) => {
-    const klientData = { ...req.body };
+    const klientData = {...req.body};
     KlientRepository.createKlient(klientData)
         .then(result => {
             res.redirect('/klient');
@@ -77,13 +76,11 @@ exports.addKlient = (req, res, next) => {
         });
 
 
-
-
 };
 
 exports.updateKlient = (req, res, next) => {
     const klientID = req.body.IdKlient;
-    const klientData = { ...req.body };
+    const klientData = {...req.body};
     KlientRepository.updateKlient(klientID, klientData)
         .then(result => {
             res.redirect('/klient');
