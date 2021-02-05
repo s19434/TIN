@@ -1,11 +1,11 @@
 function validateForm() {
     const passportId = document.getElementById('IdKlient');
-    const imie = document.getElementById('name');
-    const nazwisko = document.getElementById('surname');
-    const dateOfBirth = document.getElementById('DateOfBirth');
-    const numerTel = document.getElementById('Telephone');
+    const imie = document.getElementById('Imie');
+    const nazwisko = document.getElementById('Nazwisko');
+    const dateOfBirth = document.getElementById('Data_Urodzenia');
+    const numerTel = document.getElementById('Telefon');
     const email = document.getElementById('Email');
-    const address = document.getElementById('Address');
+    const address = document.getElementById('Adres');
 
     const errorID = document.getElementById('errorID');
     const errorImie = document.getElementById('errorName');
