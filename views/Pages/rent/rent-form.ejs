@@ -3,7 +3,7 @@
 <main>
     <script type="application/javascript" src="/JS/walidacjaWynajecia.js"></script>
     <h2><%= pageTitle %></h2>
-    <form class="form" method="post" action="<%= formAction %>" novalidate>
+    <form class="form" method="post" action="<%=formAction %>" novalidate>
 
         <!-- onsubmit="return validateForm();" -->
         <input type="hidden" name="IdWynajecie" value="<%= wynajecie.IdWynajecie %>">
@@ -20,7 +20,7 @@
                 <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
                         label="<%= wynajecie.samochody.Marka + ' ' + wynajecie.samochody.Model %>"></option>
                 <% for (let i = 0; i < samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
-                <% if(wynajecie.samochody.Marka != s.Marka ){ %>
+                <% if(wynajecie.samochody.Marka != s.Marka &&  wynajecie.samochody.Model != s.Model){ %>
                     <option value="<%= s.IdSamochod %>" label="<%= s.Marka + ' ' + s.Model %>"></option>
                     </option>
                 <% } %>
@@ -36,8 +36,8 @@
 
 
         <label for="Klient_IdKlient">Klient:<sup>*</sup></label>
-        <select id="Klient_IdKlient" name="Klient_IdKlient" required
-                <%= (formMode == 'showDetails' || formMode == 'edit') ? 'disabled' : '' %>>
+        <select id="Klient_IdKlient" name="Klient_IdKlient"
+                required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
             <option value="" selected>--- Wybierz klienta ---</option>
 
             <% if (formMode == 'showDetails') { %>
@@ -46,10 +46,15 @@
             <% } else if(formMode == 'edit'){ %>
                 <option selected value="<%= wynajecie.Klient_IdKlient %>"
                         label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
+                <% for (let i = 0; i < klientAllLista.length; i++) { let k = klientAllLista[i]; %>
+                <% if(wynajecie.klienty.Imie != k.Imie && wynajecie.klienty.Nazwisko != k.Nazwisko ){ %>
+                    <option value="<%= k.IdKlient %>" label="<%= k.Imie + ' ' + k.Nazwisko %>"></option>
+                    </option>
+                <% } %>
+                <% } %>
             <% }else { %>
-                <% for (let i = 0; i < allKlient.length; i++) { let w = allKlient[i]; %>
-                <option value="<%= w.IdZamowienie %>" label="<%= w.Imie + ' ' + w.Nazwisko %>">
-                </option>
+                <% for (let i = 0; i < allKlient.length; i++) { let k = allKlient[i]; %>
+                <option value="<%= k.IdKlient %>" label="<%= k.Imie + ' ' + k.Nazwisko %>"></option>
                 </option>
                 <% } %>
             <% } %>

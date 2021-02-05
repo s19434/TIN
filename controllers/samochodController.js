@@ -65,11 +65,6 @@ exports.addSamochod = (req, res, next) => {
             res.redirect('/samochod');
         })
         .catch(err => {
-            err.errors.forEach(e => {
-                if(e.path.includes('Marka') && e.type == 'unique violation') {
-                    e.message = "Podana marka produktu już istnieje";
-                }
-             });
             res.render('Pages/car/cars_form', {
                 samochod: samochodData,
                 pageTitle: 'Dodawanie samochodu',

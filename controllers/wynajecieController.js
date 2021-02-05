@@ -53,9 +53,11 @@ exports.showEditWynajecieForm = (req, res, next) => {
     let wynajecieGetAll = WynajecieRepository.getWynajecieById(wynajecieID);
 
     let samochodGetAllSamochodList = SamochodRepository.getSamochod();
+    let klientGetAllKlientList = KlientRepository.getKlient();
 
-    Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll,samochodGetAllSamochodList ]).then(results => {
-        const [zam, prod, pozZam, prodAll] = results;
+
+    Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll,samochodGetAllSamochodList,klientGetAllKlientList ]).then(results => {
+        const [zam, prod, pozZam, prodAll, klientAll] = results;
         res.render('Pages/rent/rent-form', {
             wynajecie: pozZam,
             formMode: 'edit',
@@ -67,7 +69,10 @@ exports.showEditWynajecieForm = (req, res, next) => {
             allKlient: zam,
             allSamochod: prod,
             allWynajecie: pozZam,
-            samochodAllLista: prodAll
+            samochodAllLista: prodAll,
+            klientAllLista: klientAll
+
+
         });
 
 
@@ -104,36 +109,33 @@ exports.showWynajecieDetails = (req, res, next) => {
 
 exports.addWynajecie = (req, res, next) => {
 
-    let klientGetAll = KlientRepository.getKlient();
-    let samochodGetAll = SamochodRepository.getSamochod();
-    let wynajecieGetAll = WynajecieRepository.getWynajecie();
+    // let klientGetAll = KlientRepository.getKlient();
+    // let samochodGetAll = SamochodRepository.getSamochod();
+    // let wynajecieGetAll = WynajecieRepository.getWynajecie();
 
     const wynajecieData = { ...req.body };
     WynajecieRepository.createWynajecie(wynajecieData)
         .then(result => {
             res.redirect('/wynajecie');
         })
-        .catch(err => {
-            Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll]).then(results => {
-                const [zam, prod, pozZam] = results;
-                res.render('Pages/rent/rent-form', {
-                    wynajecie: wynajecieData,
-                    pageTitle: 'Nowe wynajecie',
-                    formMode: 'createNew',
-                    btnLabel: 'Dodaj',
-                    formAction: '/wynajecie/add',
-                    navLocation: 'wynajecie',
-                    validationErrors: err.errors,
-                    allKlient: zam,
-                    allSamochod: prod,
-                    allWynajecie: pozZam
-                });
-
-            })
-
-
-        });
-
+        // .catch(err => {
+        //     Promise.all([klientGetAll, samochodGetAll, wynajecieGetAll]).then(results => {
+        //         const [zam, prod, pozZam] = results;
+        //         res.render('Pages/rent/rent-form', {
+        //             wynajecie: wynajecieData,
+        //             pageTitle: 'Nowe wynajecie',
+        //             formMode: 'createNew',
+        //             btnLabel: 'Dodaj',
+        //             formAction: '/wynajecie/add',
+        //             navLocation: 'wynajecie',
+        //             validationErrors: err.errors,
+        //             allKlient: zam,
+        //             allSamochod: prod,
+        //             allWynajecie: pozZam
+        //         });
+        //
+        //     })
+        // });
 };
 
 
