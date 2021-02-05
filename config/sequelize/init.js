@@ -43,10 +43,10 @@ module.exports = () => {
         .then(klienty => {
             if (!klienty || klienty.length == 0) {
                 return Klient.bulkCreate([
-                    { Imie: 'Jan', Nazwisko: 'Kowalski',  Data_Urodzenia: '1999-07-26', Telefon: '666666666',Email: 'janKowalski@gmail.com', Adres: 'Pomorska 50A/41, 30-781 Radomsko' },
-                    { Imie: 'Karolina', Nazwisko: 'Suwak',  Data_Urodzenia: '2001-04-04', Telefon: '666666666',Email: 'karolinaSuwak@gmail.com', Adres: 'Koralowa 75/17, 01-014 Turek' },
-                    { Imie: 'Łukasz', Nazwisko: 'Wietnamski',  Data_Urodzenia: '1998-09-27', Telefon: '666666666',Email: 'lukaszWietnamski@gmail.com', Adres: 'Kilińskiego Jana 57/59, 09-744 Osówiec' },
-                    { Imie: 'Mikołaj', Nazwisko: 'Kopernik',  Data_Urodzenia: '1975-10-28', Telefon: '666666666',Email: 'mikolajKopernik@gmail.com', Adres: 'Nadbrzeżna 05/10, 68-891 Legionowo' }
+                    { Imie: 'Jan', Nazwisko: 'Kowalski',  Data_Urodzenia: '1999-07-26', Telefon: '666666661',Email: 'janKowalski@gmail.com', Adres: 'Pomorska 50A/41, 30-781 Radomsko' },
+                    { Imie: 'Karolina', Nazwisko: 'Suwak',  Data_Urodzenia: '2001-04-04', Telefon: '666666662',Email: 'karolinaSuwak@gmail.com', Adres: 'Koralowa 75/17, 01-014 Turek' },
+                    { Imie: 'Łukasz', Nazwisko: 'Wietnamski',  Data_Urodzenia: '1998-09-27', Telefon: '666666663',Email: 'lukaszWietnamski@gmail.com', Adres: 'Kilińskiego Jana 57/59, 09-744 Osówiec' },
+                    { Imie: 'Mikołaj', Nazwisko: 'Kopernik',  Data_Urodzenia: '1975-10-28', Telefon: '666666664',Email: 'mikolajKopernik@gmail.com', Adres: 'Nadbrzeżna 05/10, 68-891 Legionowo' }
                 ])
                     .then(() => {
                         return Klient.findAll();
