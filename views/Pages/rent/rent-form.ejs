@@ -3,31 +3,31 @@
 <main>
     <script type="application/javascript" src="/JS/walidacjaWynajecia.js"></script>
     <h2><%= pageTitle %></h2>
-    <form class="form" method="post" action="<%=formAction%>" novalidate >
+    <form class="form" method="post" action="<%= formAction %>" novalidate>
 
         <!-- onsubmit="return validateForm();" -->
-        <input type="hidden" name="IdWynajecie" value="<%= wynajecie.IdWynajecie  %>">
+        <input type="hidden" name="IdWynajecie" value="<%= wynajecie.IdWynajecie %>">
 
         <label for="Samochod_IdSamochod">Samochod:<sup>*</sup></label>
-        <select id="Samochod_IdSamochod" name="Samochod_IdSamochod" required <%= (formMode == 'showDetails') ? 'disabled' : ''%>>
-            <option value="" selected>--- Wybierz produkt ---</option>
+        <select id="Samochod_IdSamochod" name="Samochod_IdSamochod"
+                required <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <option value="" selected>--- Wybierz samochód ---</option>
 
             <% if (formMode == 'showDetails') { %>
-                <option selected value="<%= wynajecie.Samochod_IdSamochod  %>"
-                        label="<%= wynajecie.samochody.Marka %>"></option>
+                <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
+                        label="<%= wynajecie.samochody.Marka + ' ' + wynajecie.samochody.Model %>"></option>
             <% } else if(formMode == 'edit'){ %>
                 <option selected value="<%= wynajecie.Samochod_IdSamochod %>"
-                        label="<%= wynajecie.samochody.Marka %>"></option>
-                <% for (let i=0; i<samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
+                        label="<%= wynajecie.samochody.Marka + ' ' + wynajecie.samochody.Model %>"></option>
+                <% for (let i = 0; i < samochodAllLista.length; i++) { let s = samochodAllLista[i]; %>
                 <% if(wynajecie.samochody.Marka != s.Marka ){ %>
-                    <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+                    <option value="<%= s.IdSamochod %>" label="<%= s.Marka + ' ' + s.Model %>"></option>
                     </option>
-                <%} %>
                 <% } %>
-
+                <% } %>
             <% }else { %>
-                <% for (let i=0; i<allSamochod.length; i++) { let s = allSamochod[i]; %>
-                <option value="<%= s.IdSamochod %>" label="<%= s.Marka %>"></option>
+                <% for (let i = 0; i < allSamochod.length; i++) { let s = allSamochod[i]; %>
+                <option value="<%= s.IdSamochod %>" label="<%= s.Marka + ' ' + s.Model %>"></option>
                 </option>
                 <% } %>
             <% } %>
@@ -35,24 +35,23 @@
         <span></span>
 
 
-
         <label for="Klient_IdKlient">Klient:<sup>*</sup></label>
         <select id="Klient_IdKlient" name="Klient_IdKlient" required
-            <%= (formMode == 'showDetails' || formMode == 'edit' ) ? 'disabled' : ''%>>
+                <%= (formMode == 'showDetails' || formMode == 'edit') ? 'disabled' : '' %>>
             <option value="" selected>--- Wybierz klienta ---</option>
 
             <% if (formMode == 'showDetails') { %>
-            <option selected value="<%= wynajecie.Klient_IdKlient %>"
-                label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
+                <option selected value="<%= wynajecie.Klient_IdKlient %>"
+                        label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
             <% } else if(formMode == 'edit'){ %>
-            <option selected value="<%= wynajecie.Klient_IdKlient %>"
-                label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
+                <option selected value="<%= wynajecie.Klient_IdKlient %>"
+                        label="<%= wynajecie.klienty.Imie + ' ' + wynajecie.klienty.Nazwisko %>"></option>
             <% }else { %>
-            <% for (let i=0; i<allKlient.length; i++) { let w = allKlient[i]; %>
-            <option value="<%= w.IdZamowienie %>" label="<%= w.Imie + ' ' + w.Nazwisko %>">
-            </option>
-            </option>
-            <% } %>
+                <% for (let i = 0; i < allKlient.length; i++) { let w = allKlient[i]; %>
+                <option value="<%= w.IdZamowienie %>" label="<%= w.Imie + ' ' + w.Nazwisko %>">
+                </option>
+                </option>
+                <% } %>
             <% } %>
         </select>
         <span></span>
@@ -60,31 +59,28 @@
 
         <label for="Data_Wynajecia">Data wynajęcia:</label>
         <input type="date" name="Data_Wynajecia" id="Data_Wynajecia" value="<%= wynajecie.Data_Wynajecia %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
         <label for="Data_Oddania">Data oddania:<sup>*</sup></label>
         <input type="date" name="Data_Oddania" id="Data_Oddania" value="<%= wynajecie.Data_Oddania %>"
-            <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span></span>
 
         <% if (formMode == 'showDetails') { %>
 
-
         <% } %>
 
-
-
         <% if (formMode == 'showDetails'){ %>
-        <div class="form-buttons">
-            <a href="/wynajecie/edit/<%=wynajecie.IdWynajecie%>"
-                class="form-button-edit-detail">Edytuj</a>
-        </div>
+            <div class="form-buttons">
+                <a href="/wynajecie/edit/<%= wynajecie.IdWynajecie %>"
+                   class="form-button-edit-detail">Edytuj</a>
+            </div>
         <% }else { %>
-        <div class="form-buttons">
-            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-            <span id="errorsSummary" class="errors-text"></span>
-        </div>
+            <div class="form-buttons">
+                <input class="form-button-submit" type="submit" value="<%= btnLabel %>"/>
+                <span id="errorsSummary" class="errors-text"></span>
+            </div>
         <% } %>
 
     </form>
@@ -92,9 +88,9 @@
     <div class="form-buttons">
 
         <% if (formMode != 'showDetails') { %>
-        <a class="form-button-cancel" href="/wynajecie">Anuluj</a>
+            <a class="form-button-cancel" href="/wynajecie">Anuluj</a>
         <% } else { %>
-        <a class="form-button-cancel" href="/wynajecie">Powrót</a>
+            <a class="form-button-cancel" href="/wynajecie">Powrót</a>
         <% } %>
     </div>
 

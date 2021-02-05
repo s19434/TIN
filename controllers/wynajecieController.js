@@ -13,7 +13,7 @@ exports.showWynajecieList = (req, res, next) => {
                 navLocation: 'wynajecie'
             });
         })
-}
+};
 
 
 
@@ -138,7 +138,7 @@ exports.addWynajecie = (req, res, next) => {
 
 
 exports.updateWynajecie = (req, res, next) => {
-    const wynajecieID = req.body.wynajecieID;
+    const wynajecieID = req.body.IdWynajecie;
     const wynajecieData = { ...req.body };
 
     let klientGetAll = KlientRepository.getKlient();

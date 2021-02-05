@@ -5,20 +5,24 @@
     <div class="lista">
         <table class="table-list">
             <thead>
-                <tr>
-                    <th scope="col">Imie Nazwisko</th>
-                    <th scope="col">Model</th>
-                    <th scope="col">Data wynajęcia</th>
-                    <th scope="col">Data oddania</th>
-                    <th scope="col">Cena za wynajęcie</th>
-                    <th scope="col">Funkcjonalność</th>
-                </tr>
+            <tr>
+                <th scope="col">Imie i Nazwisko</th>
+                <th scope="col">Marka i Model</th>
+                <th scope="col">Data wynajęcia</th>
+                <th scope="col">Data oddania</th>
+                <th scope="col">Cena za wynajęcie</th>
+                <th scope="col">Funkcjonalność</th>
+            </tr>
             </thead>
             <tbody>
-                <% for (let w of wynajecieList) { %>
+            <% for (let w of wynajecieList) { %>
                 <tr>
-                    <td><a><%= w.klienty.Imie%> <%= w.klienty.Nazwisko %></a> %></td>
-                    <td><%= w.samochody.Model %></td>
+                    <td><a><%= w.klienty.Imie %> <%= w.klienty.Nazwisko %></a>
+                        %>
+                    </td>
+                    <td><a><%= w.samochody.Marka %> <%= w.samochody.Model %></a>
+                        %>
+                    </td>
                     <td><%= w.Data_Wynajecia %></td>
                     <td><%= w.Data_Oddania %></td>
                     <td>
@@ -26,16 +30,16 @@
                     </td>
                     <td>
                         <ul class="list-actions">
-                            <li><a href="/wynajecie/details/<%=w.IdWynajecie%>"
-                                    class="list-actions-button-details">Szczegóły</a></li>
-                            <li><a href="/wynajecie/edit/<%=w.IdWynajecie%>"
-                                    class="list-actions-button-edit">Edytuj</a></li>
-                            <li><a href="/wynajecie/delete/<%=w.IdWynajecie%>"
-                                    class="list-actions-button-delete">Usuń</a></li>
+                            <li><a href="/wynajecie/details/<%= w.IdWynajecie %>"
+                                   class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/wynajecie/edit/<%= w.IdWynajecie %>"
+                                   class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/wynajecie/delete/<%= w.IdWynajecie %>"
+                                   class="list-actions-button-delete">Usuń</a></li>
                         </ul>
                     </td>
                 </tr>
-                <% } %>
+            <% } %>
             </tbody>
         </table>
     </div>
