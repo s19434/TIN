@@ -70,7 +70,7 @@
         </span>
 
 
-        <label for="Data_Wynajecia">Data wynajęcia:</label>
+        <label for="Data_Wynajecia">Data wynajęcia:<sup>*</sup></label>
         <input type="date" name="Data_Wynajecia" id="Data_Wynajecia" value="<%= wynajecie.Data_Wynajecia %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorRentalDate" class="errors-text">
@@ -83,8 +83,8 @@
         <input type="date" name="Data_Oddania" id="Data_Oddania" value="<%= wynajecie.Data_Oddania %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorEndDate" class="errors-text">
-            <% if (validationErrors.find(e => e.path.includes('Data_Wynajecia'))) { %>
-                <%= validationErrors.find(e => e.path.includes('Data_Wynajecia')).message %>
+            <% if (validationErrors.find(e => e.path.includes('Data_Oddania'))) { %>
+                <%= validationErrors.find(e => e.path.includes('Data_Oddania')).message %>
             <% } %>
         </span>
 
