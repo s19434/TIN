@@ -47,7 +47,7 @@ exports.showSamochodDetails = (req, res, next) => {
             res.render('Pages/car/cars_form', {
                 samochod: samochod,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły produktu',
+                pageTitle: 'Szczegóły samochodu',
                 formAction: '',
                 navLocation: 'samochod',
                 validationErrors: []

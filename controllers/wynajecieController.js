@@ -61,7 +61,7 @@ exports.showEditWynajecieForm = (req, res, next) => {
         res.render('Pages/rent/rent-form', {
             wynajecie: pozZam,
             formMode: 'edit',
-            pageTitle: 'Edycja wynajecia',
+            pageTitle: 'Edycja wynajęcia',
             btnLabel: 'Edytuj',
             formAction: '/wynajecie/edit',
             navLocation: 'wynajecie',
