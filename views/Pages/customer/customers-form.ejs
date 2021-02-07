@@ -55,7 +55,7 @@
         </span>
 
         <label for="Adres">Adres:<sup>*</sup></label>
-        <input type="text" name="Adres" id="Adres" placeholder="np. Near 1" value="<%= klient.Nazwisko %>"
+        <input type="text" name="Adres" id="Adres" placeholder="np. Near 1" value="<%= klient.Adres %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
         <span id="errorAddress" class="errors-text">
             <% if (validationErrors.find(e => e.path.includes('Adres'))) { %>
