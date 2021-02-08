@@ -43,10 +43,10 @@ function validateForm() {
         valid = false;
         nazwisko.classList.add("error-input");
         errorNazwisko.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(nazwisko.value, 2, 60)) {
+    } else if (!checkTextLengthRange(nazwisko.value, 2, 40)) {
         valid = false;
         nazwisko.classList.add("error-input");
-        errorNazwisko.innerText = "Pole powinno zawierać od 2 do 60 znaków";
+        errorNazwisko.innerText = "Pole powinno zawierać od 2 do 40 znaków";
     } else if (hasNumber(nazwisko.value)) {
         valid = false;
         nazwisko.classList.add("error-input");

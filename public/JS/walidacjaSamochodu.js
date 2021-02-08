@@ -24,10 +24,10 @@ function validateForm() {
         valid = false;
         brand.classList.add("error-input");
         errorBrand.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(brand.value, 3, 20)) {
+    } else if (!checkTextLengthRange(brand.value, 3, 30)) {
         valid = false;
         brand.classList.add("error-input");
-        errorBrand.innerText = "Pole powinno zawierać od 3 do 20 znaków";
+        errorBrand.innerText = "Pole powinno zawierać od 3 do 30 znaków";
     }
 
     //////////////////////////////////////////////////////////////////////
@@ -37,10 +37,10 @@ function validateForm() {
         valid = false;
         model.classList.add("error-input");
         errorModel.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(model.value, 2, 40)) {
+    } else if (!checkTextLengthRange(model.value, 2, 20)) {
         valid = false;
         model.classList.add("error-input");
-        errorModel.innerText = "Pole powinno zawierać od 3 do 20 znaków";
+        errorModel.innerText = "Pole powinno zawierać od 2 do 20 znaków";
     }
 
     //////////////////////////////////////////////////////////////////////
