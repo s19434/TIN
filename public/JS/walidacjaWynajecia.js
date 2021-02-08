@@ -43,10 +43,10 @@ function validateForm() {
         rentalDate.classList.add("error-input");
         errorRentalDate.innerText = "Pole jest wymagane";
     }
-    else if (checkDateIfAfter(rentalDate.value, nowDate)) {
+    else if (checkDateIfAfter(nowDate ,rentalDate.value, )) {
         valid = false;
         rentalDate.classList.add("error-input");
-        errorRentalDate.innerText = "Data nie może być z przyszłości";
+        errorRentalDate.innerText = "Data nie może być z przeszłości";
     } else if (checkRequired(endDate.value) && !checkDateIfAfter(endDate.value, rentalDate.value)) {
         //jeśli data od oraz data do jest poprawna, sprawdzamy kolejność dat
         valid = false;
