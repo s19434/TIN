@@ -1,27 +1,36 @@
 function validateForm() {
 
-    const carId = document.getElementById('Klient_IdKlient');
+    const carId = document.getElementById('Samochod_IdSamochod');
+    const customerId = document.getElementById('Klient_IdKlient');
     const rentalDate = document.getElementById('Data_Wynajecia');
     const endDate = document.getElementById('Data_Oddania');
 
-
-    const errorCarId = document.getElementById('errorKlient');
+    const errorCarId = document.getElementById('errorSamochod');
+    const errorCustomerId = document.getElementById('errorKlient');
     const errorRentalDate = document.getElementById('errorRentalDate');
     const errorEndDate = document.getElementById('errorEndDate');
 
     console.log("Cos");
 
-    resetErrors([carId, rentalDate, endDate], [ errorCarId, errorRentalDate, errorEndDate], errorsSummary);
+    resetErrors([carId, customerId, rentalDate, endDate], [errorCarId, errorCustomerId, errorRentalDate, errorEndDate], errorsSummary);
 
     let valid = true;
 
     //////////////////////////////////////////////////////////////////////
-    //Produkt
+    //carId
 
     if (!checkRequired(carId.value)) {
         valid = false;
         carId.classList.add("error-input");
         errorCarId.innerText = "Pole jest wymagane";
+    }
+    //////////////////////////////////////////////////////////////////////
+    //CustomerId
+
+    if (!checkRequired(customerId.value)) {
+        valid = false;
+        customerId.classList.add("error-input");
+        errorCustomerId.innerText = "Pole jest wymagane";
     }
 
 //////////////////////////////////////////////////////////////////////
@@ -42,8 +51,7 @@ function validateForm() {
         valid = false;
         rentalDate.classList.add("error-input");
         errorRentalDate.innerText = "Pole jest wymagane";
-    }
-    else if (checkDateIfAfter(nowDate ,rentalDate.value, )) {
+    } else if (checkDateIfAfter(nowDate, rentalDate.value,)) {
         valid = false;
         rentalDate.classList.add("error-input");
         errorRentalDate.innerText = "Data nie może być z przeszłości";
@@ -59,7 +67,6 @@ function validateForm() {
     }
 
     return valid;
-
 
 
 }
