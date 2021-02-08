@@ -95,8 +95,8 @@ const Klient = sequelize.define('Klient', {
                 msg: "Pole jest wymagane"
             },
             len: {
-                args: [5, 50],
-                msg: "Pole powinno zawierać od 5 do 50 znaków"
+                args: [4, 60],
+                msg: "Pole powinno zawierać od 4 do 60 znaków"
             }
         }
     },

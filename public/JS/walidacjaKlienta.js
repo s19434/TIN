@@ -110,7 +110,7 @@ function validateForm() {
         valid = false;
         address.classList.add("error-input");
         errorAddress.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(address.value, 4, 20)) {
+    } else if (!checkTextLengthRange(address.value, 4, 60)) {
         valid = false;
         address.classList.add("error-input");
         errorAddress.innerText = "Pole powinno zawierać od 4 do 20 znaków";

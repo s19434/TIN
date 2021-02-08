@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a987b3e2-ccb5-4ed7-99d6-628a364477be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/model/sequelize/Samochod.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/sequelize/Samochod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,11 +99,36 @@
       <option name="project" value="LOCAL" />
       <updated>1612774964130</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Small Fixes">
+      <created>1612775219126</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1612775219126</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Small Fixes">
+      <created>1612775269110</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612775269110</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Errors fix" />
@@ -112,10 +137,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Small Fixes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="318" y="39" key="CommitChangelistDialog2" timestamp="1612775222893">
+    <state x="318" y="39" key="CommitChangelistDialog2" timestamp="1612775267986">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state x="318" y="39" key="CommitChangelistDialog2/0.30.1536.834@0.30.1536.834" timestamp="1612775222892" />
+    <state x="318" y="39" key="CommitChangelistDialog2/0.30.1536.834@0.30.1536.834" timestamp="1612775267986" />
     <state width="723" height="214" key="GridCell.Tab.0.bottom" timestamp="1611273364786">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
@@ -136,10 +161,10 @@
       <screen x="0" y="30" width="1536" height="834" />
     </state>
     <state x="453" y="158" key="RollbackChangesDialog/0.30.1536.834@0.30.1536.834" timestamp="1612773108517" />
-    <state x="361" y="169" key="Vcs.Push.Dialog.v2" timestamp="1612774494485">
+    <state x="361" y="169" key="Vcs.Push.Dialog.v2" timestamp="1612775271081">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
-    <state x="361" y="169" key="Vcs.Push.Dialog.v2/0.30.1536.834@0.30.1536.834" timestamp="1612774494485" />
+    <state x="361" y="169" key="Vcs.Push.Dialog.v2/0.30.1536.834@0.30.1536.834" timestamp="1612775271081" />
     <state x="578" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612775260894">
       <screen x="0" y="30" width="1536" height="834" />
     </state>
