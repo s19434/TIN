@@ -1,5 +1,5 @@
 function validateForm() {
-    const passportId = document.getElementById('IdKlient');
+
     const imie = document.getElementById('Imie');
     const nazwisko = document.getElementById('Nazwisko');
     const dateOfBirth = document.getElementById('Data_Urodzenia');
@@ -7,7 +7,7 @@ function validateForm() {
     const email = document.getElementById('Email');
     const address = document.getElementById('Adres');
 
-    const errorID = document.getElementById('errorID');
+
     const errorImie = document.getElementById('errorName');
     const errorNazwisko = document.getElementById('errorSurname');
     const errorYear = document.getElementById('errorYear');
@@ -15,21 +15,10 @@ function validateForm() {
     const errorNumerNumerTel = document.getElementById('errorTelephone');
     const errorAddress = document.getElementById('errorAddress');
 
-    resetErrors([passportId, imie, nazwisko, dateOfBirth, numerTel, email, address], [errorID, errorImie, errorNazwisko, errorYear, errorEmail, errorNumerNumerTel, errorAddress], errorsSummary);
+    resetErrors([ imie, nazwisko, dateOfBirth, numerTel, email, address], [ errorImie, errorNazwisko, errorYear, errorEmail, errorNumerNumerTel, errorAddress], errorsSummary);
 
     let valid = true;
-    //////////////////////////////////////////////////////////////////////
-    //passportId
 
-    if (!checkRequired(passportId.value)) {
-        valid = false;
-        passportId.classList.add("error-input");
-        errorID.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(passportId.value, 10, 20)) {
-        valid = false;
-        passportId.classList.add("error-input");
-        errorID.innerText = "Pole powinno zawierać od 10 do 20 znaków";
-    }
     //////////////////////////////////////////////////////////////////////
     //Imie
 
@@ -126,6 +115,9 @@ function validateForm() {
         errorAddress.innerText = "Pole powinno zawierać od 4 do 20 znaków";
     }
 
+    if (!valid) {
+        errorsSummary.innerText = "Formularz zawiera błędy";
+    }
 
     return valid;
 

@@ -1,20 +1,17 @@
 function validateForm() {
 
-    const passportId = document.getElementById('Samochod_IdSamochod');
     const carId = document.getElementById('Klient_IdKlient');
     const rentalDate = document.getElementById('Data_Wynajecia');
     const endDate = document.getElementById('Data_Oddania');
 
 
-
-    const errorPassportId = document.getElementById('errorSamochod');
     const errorCarId = document.getElementById('errorKlient');
     const errorRentalDate = document.getElementById('errorRentalDate');
     const errorEndDate = document.getElementById('errorEndDate');
 
     console.log("Cos");
 
-    resetErrors([passportId, carId, rentalDate, endDate], [errorPassportId, errorCarId, errorRentalDate, errorEndDate], errorsSummary);
+    resetErrors([carId, rentalDate, endDate], [ errorCarId, errorRentalDate, errorEndDate], errorsSummary);
 
     let valid = true;
     //////////////////////////////////////////////////////////////////////

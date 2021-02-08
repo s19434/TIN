@@ -1,15 +1,10 @@
 function validateForm() {
 
-    const NumerSamochod = document.getElementById('IdSamochod');
     const brand = document.getElementById('Marka');
     const model = document.getElementById('Model');
     const yearOfManufacture = document.getElementById('Rok_Produkcji');
     const pricePerDay = document.getElementById('Cena_Za_Dzien');
 
-
-
-
-    const errorID = document.getElementById('errorID');
     const errorBrand = document.getElementById('errorBrand');
     const errorModel = document.getElementById('errorModel');
     const errorYear = document.getElementById('errorYear');
@@ -17,21 +12,10 @@ function validateForm() {
 
 
 
-    resetErrors([NumerSamochod, brand, model, yearOfManufacture, pricePerDay], [errorID, errorBrand, errorModel, errorYear, errorPrice], errorsSummary);
+    resetErrors([ brand, model, yearOfManufacture, pricePerDay], [ errorBrand, errorModel, errorYear, errorPrice], errorsSummary);
 
     let valid = true;
-    //////////////////////////////////////////////////////////////////////
-    //NumerSamochod
 
-    if (!checkRequired(NumerSamochod.value)) {
-        valid = false;
-        NumerSamochod.classList.add("error-input");
-        errorID.innerText = "Pole jest wymagane";
-    } else if (!checkTextLengthRange(NumerSamochod.value, 2, 60)) {
-        valid = false;
-        NumerSamochod.classList.add("error-input");
-        errorID.innerText = "Pole powinno zawierać od 2 do 60 znaków";
-    }
     //////////////////////////////////////////////////////////////////////
     //Brand
 
