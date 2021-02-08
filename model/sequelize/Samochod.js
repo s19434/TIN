@@ -21,8 +21,8 @@ const Samochod = sequelize.define('Samochod', {
                 msg: "Pole jest wymagane"
             },
             len: {
-                args: [2, 30],
-                msg: "Pole powinno zawierać od 2 do 30 znaków"
+                args: [3, 30],
+                msg: "Pole powinno zawierać od 3 do 30 znaków"
             }
         }
     },

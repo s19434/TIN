@@ -20,7 +20,7 @@ const Klient = sequelize.define('Klient', {
             },
             len: {
                 args: [2, 40],
-                msg: "Pole powinno zawierać od 3 do 30 znaków"
+                msg: "Pole powinno zawierać od 2 do 40 znaków"
             }
         }
     },
@@ -32,8 +32,8 @@ const Klient = sequelize.define('Klient', {
                 msg: "Pole jest wymagane"
             },
             len: {
-                args: [2, 60],
-                msg: "Pole powinno zawierać od 3 do 30 znaków"
+                args: [2, 40],
+                msg: "Pole powinno zawierać od 2 do 40 znaków"
             },
         }
     },
