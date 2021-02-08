@@ -14,14 +14,7 @@ function validateForm() {
     resetErrors([carId, rentalDate, endDate], [ errorCarId, errorRentalDate, errorEndDate], errorsSummary);
 
     let valid = true;
-    //////////////////////////////////////////////////////////////////////
-    //passportId
 
-    if (!checkRequired(passportId.value)) {
-        valid = false;
-        passportId.classList.add("error-input");
-        errorPassportId.innerText = "Pole jest wymagane";
-    }
     //////////////////////////////////////////////////////////////////////
     //Produkt
 
