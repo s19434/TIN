@@ -1,6 +1,7 @@
 function validateForm() {
 
     const imie = document.getElementById('Imie');
+
     const nazwisko = document.getElementById('Nazwisko');
     const dateOfBirth = document.getElementById('Data_Urodzenia');
     const numerTel = document.getElementById('Telefon');

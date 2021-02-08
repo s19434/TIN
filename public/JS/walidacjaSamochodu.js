@@ -13,6 +13,7 @@ function validateForm() {
 
 
     resetErrors([ brand, model, yearOfManufacture, pricePerDay], [ errorBrand, errorModel, errorYear, errorPrice], errorsSummary);
+    console.log("resetErrors");
 
     let valid = true;
 
